@@ -9,4 +9,8 @@ function FirstController($scope, Data) {
 
 function SecondController($scope, Data) {
   $scope.data = Data;
+
+  $scope.reversedMessage = function () {
+    return $scope.data.message.split("").reverse().join("");
+  }
 }
