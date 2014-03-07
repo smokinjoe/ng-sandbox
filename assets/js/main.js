@@ -1,3 +1,6 @@
-function FirstCtrl($scope) {
-  $scope.data = { message: "Hello" };
+function FirstController($scope) {
+
+}
+function SecondController($scope) {
+
 }

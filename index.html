@@ -18,9 +18,19 @@
 <body>
 
 <div ng-app="">
-  <div ng-controller="FirstCtrl">
-    <h2>{{data.message + " world"}}</h2>
-    <div class="{{data.message}}">
+  <input type="text" ng-model="message">
+  <h1>{{message}}</h1>
+  <div ng-controller="FirstController">
+    <input type="text" ng-model="message">
+    <h1>{{message + " world"}}</h1>
+    <div class="{{message}}">
+      Wrap me with a foundation component
+    </div>
+  </div>
+  <div ng-controller="SecondController">
+    <input type="text" ng-model="message">
+    <h1>{{message + " world"}}</h1>
+    <div class="{{message}}">
       Wrap me with a foundation component
     </div>
   </div>
