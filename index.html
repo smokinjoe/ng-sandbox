@@ -1,0 +1,31 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>data binding</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="assets/css/foundation.css">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+<div ng-app="">
+  <input type="text" ng-model="data.message">
+  <h2>{{data.message}}</h2>
+  <div class="{{data.message}}">
+    Wrap me with a foundation component
+  </div>
+</div>
+
+
+  <script src="assets/js/angular.js"></script>
+</body>
+</html>
