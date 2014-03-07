@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<head>
+    <!-- Hey there! -->
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Joe Ekiert's Resume</title>
+    <base href="http://ekiert.net/">
+    <link rel="stylesheet" type="text/css" href="assets/ekiert/css/yahoo-reset-min.css">
+    <link rel="stylesheet" type="text/css" href="assets/ekiert/css/jquery-ui-1.8.16.custom.css">
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    <link data-link="me" rel="stylesheet" type="text/css" href="assets/ekiert/css/style.css">
+	<style type="text/css" media="screen,print">
+		html {font-family:Droid Sans;font-size:14px;color:#303030;background:#F7F7F7;}
+		.header {margin:auto;font-size:18px;margin-bottom:10px;}
+		.header .name {font-size:20px;font-weight:bold;}
+		#container {width:800px;margin:auto;padding-top:20px;padding-bottom:20px;}
+		h2 {font-size:18px;margin-bottom:7px;margin-top:15px;font-weight:bold;border-bottom:1px solid gray;}
+		h3 {font-size:16px;margin:10px 0 3px 0;}
+		.subheader {font-color:#5B5B5B;font-style:italic;font-size:12px;}
+		.footer {margin-top:15px;font-size:16px;font-weight:bold;}
+		ul.experience {padding-left:10px;list-style-type:square;}
+		ul li {margin:2px 0;}
+		a {text-decoration:none;color:#993C3E;}
+		a:hover {color:#998D62;}
+		.name-email {float:left;}
+		.address {float:right;}
+		.clear {clear:both;}
+	</style>
+</head>
+<body>
+
+<div id="container">
+    <!-- <button id="form-resume">Form Resume</button> -->
+</div>
+
+<script type="text/javascript" src="assets/ekiert/js/jquery-1.6.2.min.js"></script>
+<script type="text/javascript" src="assets/ekiert/js/jqueryui-1.8.9.min.js"></script>
+<script type="text/javascript" src="assets/ekiert/js/jquery.tmpl.js"></script>
+<script type="text/javascript" src="assets/ekiert/js/underscore.js"></script>
+<script type="text/javascript" src="assets/ekiert/js/backbone.js"></script>
+<script type="text/javascript" src="assets/ekiert/js/resume.js"></script>
+
+<script type="text/javascript" charset="utf-8">
+    $(function(){
+    });
+</script>
+
+
+<script type="x-jquery-tmpl" id="resume-template">
+    <div class="header">
+        <div class="name-email"><span class="name">${name}<br /><a href="mailto:${email}">${email}</a><br /><a href="${website}">${website}</a></div>
+        <div class="address">${street_address}<br />${city} ${state} ${zip}<br />${phone}</div>
+        <div class="clear"></div>
+    </div>
+
+    <h2>Technical Experience</h2>
+    <ul class="technical-experience">
+        {{each technical_experience}}
+            <li>${$value.title}: {{each $value.items}}{{if !$index}}${$value}{{else}}, ${$value}{{/if}}{{/each}}</li>
+        {{/each}}
+    </ul>
+
+    <h2>Weapons of Choice</h2>
+    <ul class="weapons-of-choice">
+        {{each weapons_of_choice}}
+        <li>${$value.title}: {{each $value.items}}{{if !$index}}${$value}{{else}}, ${$value}{{/if}}{{/each}}</li>
+        {{/each}}
+    </ul>
+
+    <h2>Relevant Experience</h2>
+    {{each relevant_experience}}
+        <h3>${$value.company_name}</h3>
+        <div class="subheader">${$value.company_role}<br />
+        ${$value.date_start} ~ ${$value.date_end} </div>
+        <ul class="experience">
+            {{each $value.responsibilities}}<li>${$value.description}</li>{{/each}}
+        </ul>
+    {{/each}}
+
+
+    <h2>Education</h2>
+    {{each schools}}
+        <h3>${$value.school_name}</h3>
+        <div class="subheader">${$value.wut}<br />${$value.date_of_graduation}</div>
+    {{/each}}
+
+    <h2>Projects</h2>
+    <div class="projects">
+    {{each projects}}
+        <h3>${$value.title}</h3>
+        <a href="${$value.link_url}">${$value.link_title}</a>
+    {{/each}}
+    </div>
+
+    <div class="footer">
+        <span class="refs">${references}</span>
+    </div>
+</script>
+
+</body>
+
+</html>
