@@ -16,28 +16,24 @@
 </head>
 
 <body>
+  <div class="row">
+    <div class="large-4 large-offset4 columns">
+      <div ng-app="myApp">
 
-<div ng-app="">
-  <input type="text" ng-model="message">
-  <h1>{{message}}</h1>
-  <div ng-controller="FirstController">
-    <input type="text" ng-model="message">
-    <h1>{{message + " world"}}</h1>
-    <div class="{{message}}">
-      Wrap me with a foundation component
+        <div ng-controller="FirstController">
+          <input type="text" ng-model="data.message">
+          <h1>{{data.message}}</h1>
+        </div>
+
+        <div ng-controller="SecondController">
+          <input type="text" ng-model="data.message">
+          <h1>{{data.message}}</h1>
+        </div>
+
+      </div>
     </div>
   </div>
-  <div ng-controller="SecondController">
-    <input type="text" ng-model="message">
-    <h1>{{message + " world"}}</h1>
-    <div class="{{message}}">
-      Wrap me with a foundation component
-    </div>
-  </div>
-</div>
-
-
-  <script src="assets/js/main.js"></script>
   <script src="assets/js/angular.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
